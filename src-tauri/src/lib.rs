@@ -19,6 +19,7 @@ pub fn run() {
     let rt = Runtime::new().unwrap();
 
     let join_handle = rt.spawn(async move {
+        // TODO: Create db is it does not exist. This may be built in, but I am on a plane and can't see
         let conn = 
             Connection::open("./db/app.db")
             .await
