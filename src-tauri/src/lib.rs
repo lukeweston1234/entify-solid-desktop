@@ -6,7 +6,7 @@ use db::init::initialize_database;
 use std::sync::Arc;
 use std::env::current_dir;
 
-use crate::api::commands::{get_node};
+use crate::api::commands::*;
 
 mod db;
 mod api;
@@ -40,7 +40,13 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             get_node,
-            get_skill_tree
+            create_node,
+            update_node,
+            delete_node,
+            get_skill_tree,
+            create_skill_tree_item,
+            update_skill_tree_item,
+            delete_skill_tree_item
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
