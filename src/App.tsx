@@ -5,8 +5,11 @@ import "./App.css";
 
 function App() {
   onMount(async () => {
-    const res = await invoke('get_node', {id: 13})
-    console.log(res)
+    const resOne = await invoke('get_node', {id: 13})
+    const resTwo = await invoke('get_skill_tree', {id: 4});
+    console.log(resOne)
+    console.log(resTwo)
+
   })
   return (
     <main class="container">

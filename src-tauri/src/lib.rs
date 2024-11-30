@@ -1,3 +1,4 @@
+use api::commands::get_skill_tree;
 use tokio_rusqlite::Connection;
 use tokio::runtime::Runtime;
 use db::init::initialize_database;
@@ -38,7 +39,8 @@ pub fn run() {
         .manage(shared_conn)
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
-            get_node
+            get_node,
+            get_skill_tree
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

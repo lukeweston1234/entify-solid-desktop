@@ -1,5 +1,35 @@
 use tokio_rusqlite::{ Connection, params };
+use std::error::Error;
 use crate::db::schema::{SkillTree, SkillTreeNode};
+
+pub async fn get_tree_and_nodes(conn: &Connection, skill_tree_id: u32) -> Result<(SkillTree, Vec<SkillTreeNode>), tokio_rusqlite::Error>{
+    let res = tokio::try_join!(
+        get_skill_tree(conn, skill_tree_id),
+        get_skill_tree_nodes(conn, skill_tree_id)
+    );
+
+    res
+}  
+
+pub async fn get_skill_tree(conn: &Connection, skill_tree_id: u32) -> Result<SkillTree, tokio_rusqlite::Error> {
+    conn.call(move |conn| {
+        let mut stmt = conn.prepare(
+            "SELECT id, title, description FROM skill_trees WHERE id = ?1")?;
+        let res = stmt.query_map(
+            params![skill_tree_id],
+            |row| {
+                Ok(SkillTree {
+                    id: row.get(0)?,
+                    title: row.get(1)?,
+                    description: row.get(2)?
+                })
+            }
+        )?
+        .collect::<Result<Vec<_>, _>>()?;
+        let first = (&res[0]).clone();
+        Ok(first)
+    }).await
+}
 
 pub async fn get_skill_tree_nodes(conn: &Connection, skill_tree_id: u32) -> Result<Vec<SkillTreeNode>, tokio_rusqlite::Error> {
     conn.call(move |conn|{
