@@ -5,12 +5,12 @@ use db::init::initialize_database;
 use std::sync::Arc;
 use std::env::current_dir;
 
-mod db;
+use crate::api::commands::{get_node};
 
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
+mod db;
+mod api;
+
+
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -35,9 +35,11 @@ pub fn run() {
     let shared_conn = Arc::new(conn);
 
     tauri::Builder::default()
-        .manage(shared_conn.clone())
+        .manage(shared_conn)
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![
+            get_node
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
