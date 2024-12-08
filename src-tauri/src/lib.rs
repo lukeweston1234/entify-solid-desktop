@@ -40,6 +40,7 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             get_node,
+            get_all_tree_items,
             create_node,
             update_node,
             delete_node,

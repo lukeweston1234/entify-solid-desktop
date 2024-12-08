@@ -11,6 +11,24 @@ pub async fn get_tree_and_nodes(conn: &Connection, skill_tree_id: u32) -> Result
     res
 }  
 
+pub async fn get_all_trees(conn: &Connection) -> Result<Vec<SkillTree>, tokio_rusqlite::Error>{
+    conn.call(move |conn|{
+        let mut statement = conn.prepare(
+            "SELECT id, title, description FROM skill_trees"
+        )?;
+        let res = statement.query_map(
+            [],
+            |row| Ok(SkillTree {
+                id: row.get(0)?,
+                title: row.get(1)?,
+                description: row.get(2)?
+            })
+        )?
+        .collect::<Result<Vec<_>, _>>()?;
+        Ok(res)
+    }).await
+}
+
 pub async fn get_skill_tree(conn: &Connection, skill_tree_id: u32) -> Result<SkillTree, tokio_rusqlite::Error> {
     conn.call(move |conn| {
         let mut stmt = conn.prepare(

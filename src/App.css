@@ -1,3 +1,120 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-white border-opacity-60 hover:border-opacity-80 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition-all
+  }
+  .btn-danger {
+    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-appDanger border-opacity-100 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition
+  }
+  .input-primary {
+    @apply min-w-[64px] rounded-2xl pl-3 font-appRegular outline-none placeholder-white h-[42px] border-2 border-white border-opacity-60 bg-transparent text-white text-opacity-70
+  }
+  .card {
+    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-white border-opacity-100 text-opacity-100 text-white rounded-full flex items-center transition
+  }
+}
+
+@font-face {
+  font-family: "interface-light";
+  src: url("./assets/fonts/tt-interphases-pro-light.ttf")
+}
+
+@font-face {
+  font-family: "interface-regular";
+  src: url("./assets/fonts/tt-interphases-pro-regular.ttf")
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: interface-regular;
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+}
+
+button {
+  transition: 300ms;
+}
+
+button:hover {
+  scale: 103%;
+  transition: 200ms;
+}
+
+body {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  background: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+body::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+input {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+
+
+/* .app-background {
+  background: url("./assets/images/appBackground2.jpeg")  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+#markdown-container h1 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+#markdown-container * {
+  color: white;
+  font-family: 'Interface-light';
+  
+}
+
+#markdown-container h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+#markdown-container li {
+  list-style: inside;
+}
+
+#markdown-container code {
+  font-family: monospace !important;
+  font-weight: 300;
+}
+
+#markdown-container pre {
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 6px;
+  margin: 12px 0px 12px 0px;
+}
+
+#markdown-container blockquote {
+  border-left: 4px solid rgba(255,255,255,0.3);
+  padding: 0.5em 10px;
+  margin: 1em 0;
+}
+
+#markdown-container p {
+  margin-bottom: 12px;
+}
