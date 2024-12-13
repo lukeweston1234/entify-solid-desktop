@@ -1,7 +1,3 @@
 # Tauri + Solid + Typescript
 
-This template should help get you started developing with Tauri, Solid and Typescript in Vite.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Porting my old Supabase and SolidJS skill tree learning application to Tauri. Currently, we only have the Rust endpoints setup, as well as the design system and some assets ported over from the old repo.
