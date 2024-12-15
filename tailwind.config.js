@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        appDanger: "#D77777",
+        "app-primary": "var(--primary-text)",
+        "app-secondary": "var(--secondary-text)",
+
       },
       screens: {
         xsm: "540px",

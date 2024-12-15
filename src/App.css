@@ -27,6 +27,11 @@
   src: url("./assets/fonts/tt-interphases-pro-regular.ttf")
 }
 
+:root {
+  --primary-text: #ffffff;
+  --secondary-text: rgba(255,255,255,.3);
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -66,55 +71,12 @@ input {
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
-/* Optional: show position indicator in red */
 
-
-/* .app-background {
-  background: url("./assets/images/appBackground2.jpeg")  no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-
-#markdown-container h1 {
-  font-size: 20px;
-  margin-bottom: 6px;
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
 }
 
-#markdown-container * {
-  color: white;
-  font-family: 'Interface-light';
-  
+* {
+  user-select: none;
 }
 
-#markdown-container h2 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-#markdown-container li {
-  list-style: inside;
-}
-
-#markdown-container code {
-  font-family: monospace !important;
-  font-weight: 300;
-}
-
-#markdown-container pre {
-  border-radius: 6px;
-  border: 2px solid rgba(255,255,255,0.3);
-  padding: 6px;
-  margin: 12px 0px 12px 0px;
-}
-
-#markdown-container blockquote {
-  border-left: 4px solid rgba(255,255,255,0.3);
-  padding: 0.5em 10px;
-  margin: 1em 0;
-}
-
-#markdown-container p {
-  margin-bottom: 12px;
-}

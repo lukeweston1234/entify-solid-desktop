@@ -3,10 +3,14 @@ use tokio_rusqlite::Connection;
 use tokio::runtime::Runtime;
 use db::init::initialize_database;
 
+use window_vibrancy::{apply_acrylic,apply_vibrancy, NSVisualEffectMaterial};
+
 use std::sync::Arc;
 use std::env::current_dir;
 
 use crate::api::commands::*;
+
+use tauri::{Listener, Manager};
 
 mod db;
 mod api;
@@ -49,6 +53,17 @@ pub fn run() {
             update_skill_tree_item,
             delete_skill_tree_item
         ])
+        .setup(move |app| {
+            let window: tauri::WebviewWindow = app.get_webview_window("main").unwrap();
+
+            #[cfg(target_os = "macos")]
+            apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, None).expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+
+            #[cfg(target_os = "windows")]
+            apply_acrylic(&window, Some((0, 0, 0, 1))).expect("Unsupported platform");
+
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
