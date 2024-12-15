@@ -1,5 +1,14 @@
 import "./App.css";
 import Toolbar from "./shared/ui/Toolbar";
+import { lazy } from "solid-js";
+
+import { Router } from "@solidjs/router";
+import Lighting from "./shared/ui/Lighting";
+
+const routes = {
+    path: "/",
+    component: lazy(() => import("./features/home/Home")),
+}
 
 
 function App() {
@@ -20,6 +29,8 @@ function App() {
           >
             <Toolbar/>
           </div>
+          <Lighting/>
+          <Router>{routes}</Router>
         </div>
       </div>
     </main>

@@ -4,42 +4,61 @@
 
 @layer components {
   .btn-primary {
-    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-white border-opacity-60 hover:border-opacity-80 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition-all
+    @apply min-w-[64px] justify-center pl-3 pr-3 min-h-[42px] border-2 border-white border-opacity-60 hover:border-opacity-80 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition-all
   }
   .btn-danger {
-    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-appDanger border-opacity-100 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition
+    @apply min-w-[64px] justify-center pl-3 pr-3 min-h-[42px] border-2 border-appDanger border-opacity-100 text-opacity-80 hover:text-opacity-100 text-white rounded-full flex items-center transition
   }
   .input-primary {
-    @apply min-w-[64px] rounded-2xl pl-3 font-appRegular outline-none placeholder-white h-[42px] border-2 border-white border-opacity-60 bg-transparent text-white text-opacity-70
+    @apply min-w-[64px] rounded-2xl pl-3 outline-none placeholder-white h-[42px] border-2 border-white border-opacity-60 bg-transparent text-white text-opacity-70
   }
   .card {
-    @apply min-w-[64px] justify-center pl-3 pr-3 font-appRegular min-h-[42px] border-2 border-white border-opacity-100 text-opacity-100 text-white rounded-full flex items-center transition
+    @apply min-w-[64px] justify-center min-h-[42px] border-2 border-white border-opacity-100 text-opacity-100 text-white rounded-full flex items-center transition
   }
 }
 
 @font-face {
-  font-family: "interface-light";
-  src: url("./assets/fonts/tt-interphases-pro-light.ttf")
-}
-
-@font-face {
-  font-family: "interface-regular";
-  src: url("./assets/fonts/tt-interphases-pro-regular.ttf")
+  font-family: "interface";
+  src: url("./assets/fonts/tt_interphases_variable.ttf")
 }
 
 :root {
   --primary-text: #ffffff;
   --secondary-text: rgba(255,255,255,.3);
+  --background: rgba(17, 17, 17, 0.71);
+  --light-left:  radial-gradient(50% 50% at 50% 50%, rgba(188, 161, 198, 0.3) 0%, rgba(216, 206, 219, 0) 100%);
+  --light-right: none;
+}
+
+.lighting-left {
+  position: absolute;
+  width: 2642px;
+  height: 2791px;
+  left: -1800px;
+  top: -1800px;
+  background: var(--light-left);
+  border-radius: 100%;
+}
+
+.lighting-right {
+  position: absolute;
+  width: 2640px;
+  height: 2582px;
+  left: -512px;
+  top: -1087px;
+  background: var(--light-right);
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  font-family: interface-regular;
+  font-family: interface;
   margin: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
+  color: var(--primary-text);
+  font-weight: 300;
 }
 
 button {
