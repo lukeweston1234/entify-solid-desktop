@@ -1,6 +1,6 @@
 export default function Sidebar() {
   return (
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-16 items-center">
       <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
