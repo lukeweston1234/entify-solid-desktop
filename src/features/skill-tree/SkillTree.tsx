@@ -3,7 +3,7 @@ import { useParams } from "@solidjs/router";
 import { SkillTree, SkillTreeNode } from "./models/skill-tree.model";
 import { Position } from "./models/position.model";
 import { getSVGPath } from "./utils/GetSVGPath";
-import SkillTreeCard from "./components/SkillTree";
+import SkillTreeCard from "./components/SkillTreeCard";
 import Spinner from "../../shared/ui/Spinner";
 
 export default function SkillTreeView() {
@@ -33,6 +33,7 @@ export default function SkillTreeView() {
           description: "test",
           content: "test",
           parentNodeId: null,
+          depth: 0,
         },
         {
           id: 2,
@@ -40,6 +41,7 @@ export default function SkillTreeView() {
           description: "test",
           content: "test",
           parentNodeId: 1,
+          depth: 1,
         },
       ],
     };

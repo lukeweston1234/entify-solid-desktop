@@ -64,14 +64,6 @@ const SkillTreeCard: Component<{
   });
   return (
     <>
-      {/* <CreateSkillTreeModal
-        skillTreeId={props.skillTreeId}
-        parentNodeId={props.skillTreeNode.id}
-        setNewNodeParentId={props.setActiveNode}
-        isOpen={isCreateChildModalOpen}
-        setIsOpen={setIsCreateChildModalOpen}
-        refetch={props.refetch}
-      /> */}
       <div
         onMouseDown={(e) => e.stopPropagation()}
         onMouseMove={(e) => e.stopPropagation()}
@@ -110,7 +102,7 @@ const SkillTreeCard: Component<{
             }),
         }}
         class={
-          "absolute z-20 flex h-[150px] w-[200px] cursor-move flex-col overflow-hidden rounded-2xl border-2 border-white border-opacity-60 p-3 backdrop-blur-sm"
+          "absolute z-20 flex h-[150px] w-[200px] cursor-move flex-col overflow-hidden rounded-2xl border-2 border-white border-opacity-60 p-3"
         }
       >
         <div class="flex flex-col">
