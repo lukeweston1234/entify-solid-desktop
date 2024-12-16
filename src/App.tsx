@@ -1,10 +1,7 @@
 import "./App.css";
-import Toolbar from "./shared/ui/Toolbar";
 import { lazy } from "solid-js";
 
 import { Router } from "@solidjs/router";
-import Lighting from "./shared/ui/Lighting";
-import Sidebar from "./shared/ui/Sidebar";
 import Layout from "./shared/ui/Layout";
 
 const routes = [

@@ -4,21 +4,6 @@ import Lighting from "./Lighting";
 import Toolbar from "./Toolbar";
 import Sidebar from "./Sidebar";
 
-const routes = [
-  {
-    path: "/",
-    component: lazy(() => import("../../features/home/Home")),
-  },
-  {
-    path: "trees",
-    component: lazy(() => import("../../features/skill-tree/SkillTree")),
-  },
-  {
-    path: "trees/:id",
-    component: lazy(() => import("../../features/skill-tree/SkillTree")),
-  },
-];
-
 export default function Layout(props: any) {
   return (
     <main class="w-screen h-screen relative">
@@ -38,8 +23,8 @@ export default function Layout(props: any) {
           </div>
           <Lighting />
           <div class="w-full h-full flex">
-            <div class="px-6 grid grid-rows-3 border-r-2 border-app-secondary">
-              <div class="flex flex-col justify-start items-center">
+            <div class="px-6 grid grid-rows-[100px_1fr_100px] border-r-2 border-app-secondary">
+              <div class="flex flex-col justify-center items-center">
                 <svg
                   width="36"
                   height="36"
@@ -64,9 +49,8 @@ export default function Layout(props: any) {
                   </defs>
                 </svg>
               </div>
-              <div class="overflow-visible">
-                <Sidebar />
-              </div>
+
+              <Sidebar />
 
               <div></div>
             </div>

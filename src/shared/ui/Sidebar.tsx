@@ -2,7 +2,7 @@ import { A } from "@solidjs/router";
 
 export default function Sidebar() {
   return (
-    <div class="flex flex-col gap-16 items-center">
+    <div class="flex flex-col gap-16 items-center justify-center">
       <A href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ export default function Sidebar() {
           />
         </svg>
       </A>
-      <button aria-label="Export Markdown">
+      <button onclick={() => alert("test")} aria-label="Export Markdown">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
