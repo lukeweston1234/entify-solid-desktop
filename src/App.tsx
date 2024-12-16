@@ -6,10 +6,16 @@ import { Router } from "@solidjs/router";
 import Lighting from "./shared/ui/Lighting";
 import Sidebar from "./shared/ui/Sidebar";
 
-const routes = {
-  path: "/",
-  component: lazy(() => import("./features/home/Home")),
-};
+const routes = [
+  {
+    path: "/",
+    component: lazy(() => import("./features/home/Home")),
+  },
+  {
+    path: "trees/:id",
+    component: lazy(() => import("./features/skill-tree/SkillTree")),
+  },
+];
 
 function App() {
   return (
